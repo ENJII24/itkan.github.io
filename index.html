@@ -77,16 +77,13 @@ nav a:hover::after{width:100%}
 }
 
 .hero h1{
-  font-size:4.8rem;
-  font-weight:900;
-  letter-spacing:2px;
+  font-size:clamp(2.6rem, 6vw, 4.8rem);
 }
 
 .hero p{
-  font-family:'Playfair Display',serif;
-  font-size:1.9rem;
-  margin:1.5rem 0 3rem;
+  font-size:clamp(1.2rem, 3.5vw, 1.9rem);
 }
+
 
 .cv-buttons{
   display:flex;
@@ -195,11 +192,12 @@ h2{
 
 /* ================= SKILLS ICONS ================= */
 .skills-icons{
-  display:flex;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
   gap:1.5rem;
-  flex-wrap:wrap;
-  justify-content:center;
+  justify-items:center;
 }
+
 
 .skill{
   width:110px;
@@ -294,6 +292,50 @@ footer{
   .about{flex-direction:column;text-align:center}
   .hero h1{font-size:3.2rem}
 }
+/* ================= RESPONSIVE NAV ================= */
+@media (max-width: 900px){
+  nav ul{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:1.2rem;
+  }
+}
+@media (max-width: 900px){
+  .about{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .about img{
+    width:200px;
+    height:200px;
+  }
+}
+@media (max-width: 768px){
+  .blocks{
+    flex-direction:column;
+  }
+
+  .block{
+    width:100%;
+  }
+}
+@media (max-width:600px){
+  .cert-list a{
+    font-size:0.95rem;
+  }
+}
+@media (max-width:600px){
+  footer{
+    font-size:0.9rem;
+  }
+
+  .socials a{
+    margin:0 0.6rem;
+  }
+}
+
+
 </style>
 </head>
 
@@ -393,7 +435,7 @@ footer{
 <h2>Internships</h2>
 <div class="blocks">
   <div class="block">
-    <h3>International <i class="fas fa-chevron-down"></i></h3>
+    <h3>Internships<i class="fas fa-chevron-down"></i></h3>
     <div class="block-content">
         <p><h4>Intern – Network Department, Banque Zitouna (Tunis)</h4></p> 
         <p>Summer 2025</p> <br>
