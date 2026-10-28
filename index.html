@@ -571,6 +571,145 @@ section{
   box-shadow:0 -10px 40px rgba(20,20,40,.12);
 }
 
+.card-tall{position:relative;top:auto}
+
+.chips.tech{margin:-0.4rem 0 1.2rem}
+
+.card-desc{color:var(--text-2);margin-bottom:1rem}
+
+.card li strong{color:var(--text)}
+
+/* Computer-vision illustration */
+.cv-art{min-height:300px}
+
+.cv-corner{position:absolute;width:26px;height:26px;border:3px solid rgba(255,255,255,.7)}
+.cv-corner.tl{left:14px;top:14px;border-right:0;border-bottom:0;border-radius:8px 0 0 0}
+.cv-corner.tr{right:14px;top:14px;border-left:0;border-bottom:0;border-radius:0 8px 0 0}
+.cv-corner.bl{left:14px;bottom:14px;border-right:0;border-top:0;border-radius:0 0 0 8px}
+.cv-corner.br{right:14px;bottom:14px;border-left:0;border-top:0;border-radius:0 0 8px 0}
+
+.cv-rec{
+  position:absolute;left:52px;top:18px;
+  display:flex;align-items:center;gap:0.4rem;
+  font-size:0.75rem;font-weight:700;letter-spacing:1px;color:#fff;
+}
+.cv-rec i{width:9px;height:9px;border-radius:50%;background:#ff3b3b;animation:pulse 1.6s infinite}
+
+.cv-face,.cv-phone{
+  position:absolute;
+  display:flex;align-items:center;justify-content:center;
+  border:2px dashed;
+  border-radius:10px;
+  color:rgba(255,255,255,.9);
+}
+.cv-face{left:24%;top:22%;width:30%;height:56%;border-color:#2ee6d6;font-size:4.5rem}
+.cv-phone{right:12%;bottom:16%;width:18%;height:34%;border-color:#ff4fa3;font-size:2.4rem}
+
+.cv-face b,.cv-phone b{
+  position:absolute;left:-2px;top:-24px;
+  font-size:0.72rem;font-weight:700;
+  padding:0.1rem 0.5rem;border-radius:6px 6px 6px 0;
+  color:#0b0b10;
+}
+.cv-face b{background:#2ee6d6}
+.cv-phone b{background:#ff4fa3}
+
+.cv-gaze{
+  position:absolute;left:24%;bottom:10%;
+  font-size:0.8rem;font-weight:700;
+  padding:0.2rem 0.6rem;border-radius:8px;
+  background:#ffd23f;color:#0b0b10;
+}
+
+.cv-note{
+  position:absolute;right:18px;top:16px;
+  font-size:0.7rem;color:rgba(255,255,255,.55);
+  text-transform:uppercase;letter-spacing:1px;
+}
+
+.card-extra{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.2rem;
+  margin-top:1.4rem;
+}
+
+.card-extra > div{
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:1.2rem;
+}
+
+.card-extra h4{
+  display:flex;align-items:center;gap:0.5rem;
+  font-size:1rem;margin-bottom:0.8rem;
+}
+
+.card .steps{
+  list-style:none;
+  counter-reset:step;
+  gap:0.55rem;
+}
+
+.card .steps li{counter-increment:step;padding-left:2rem;font-size:0.92rem}
+
+.card .steps li::before{
+  content:counter(step);
+  width:1.4rem;height:1.4rem;top:0.05em;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.75rem;font-weight:700;color:#fff;
+}
+
+.card .limits li{font-size:0.92rem}
+.card .limits li::before{background:var(--orange)}
+
+.pipeline{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:1.1rem;
+  font-size:0.85rem;
+  font-weight:600;
+}
+
+.pipeline > span{
+  position:relative;
+  display:flex;align-items:center;gap:0.45rem;
+  padding:0.5rem 0.75rem;
+  border-radius:12px;
+  background:var(--surface);
+  border:1px solid var(--line);
+}
+
+.pipeline > span:not(:last-child)::after{
+  content:"↓";
+  position:absolute;left:50%;bottom:-1.15rem;
+  transform:translateX(-50%);
+  font-size:0.85rem;color:var(--muted);
+}
+
+.pipeline .split{gap:0.5rem;padding:0.4rem;background:transparent;border-style:dashed}
+.pipeline .split em{
+  flex:1;font-style:normal;
+  display:flex;align-items:center;gap:0.35rem;
+  padding:0.35rem 0.5rem;border-radius:10px;
+  background:var(--surface);border:1px solid var(--line);
+  font-size:0.8rem;
+}
+
+.callout{
+  display:flex;gap:0.7rem;align-items:flex-start;
+  margin-top:1.2rem;
+  padding:1rem 1.2rem;
+  border-radius:16px;
+  background:rgba(124,92,255,.10);
+  border:1px solid rgba(124,92,255,.30);
+  color:var(--text-2);
+}
+
+.callout i{color:var(--purple);margin-top:0.25rem}
+
 .card-head{
   display:flex;
   align-items:center;
@@ -974,6 +1113,7 @@ footer{
 
 /* ================= RESPONSIVE ================= */
 @media (max-width:1000px){
+  .card-extra{grid-template-columns:1fr}
   .grid{grid-template-columns:repeat(2,1fr)}
   .gallery{grid-template-columns:repeat(3,1fr)}
   .gallery .tile:nth-child(n+7){display:none}
@@ -992,6 +1132,9 @@ footer{
   .about-text{text-align:center}
   .about-text .btns{justify-content:center}
   .card-art{min-height:190px}
+  .card{position:relative;top:auto}
+  .card-extra{grid-template-columns:1fr}
+  .cv-art{min-height:240px}
   .card-head{flex-wrap:wrap}
   .card-head .tag{margin-left:0}
 }
@@ -1112,7 +1255,7 @@ footer{
         <p>I am currently <strong>looking for a final-year internship (PFE)</strong> in <strong>Data, Business Intelligence or development</strong>, to put my technical skills into practice and contribute to innovative projects in a dynamic professional environment.</p>
 
         <div class="stats">
-          <div class="stat"><b>3</b><span>Academic projects</span></div>
+          <div class="stat"><b>4</b><span>Academic projects</span></div>
           <div class="stat"><b>12</b><span>Certifications (+2 in progress)</span></div>
           <div class="stat"><b>4</b><span>Languages spoken</span></div>
         </div>
@@ -1149,21 +1292,26 @@ footer{
       </div>
       <div class="row">
         <span class="num">04</span>
+        <h3>AI &amp; Computer Vision</h3>
+        <div class="chips"><span><i class="fas fa-eye"></i>OpenCV</span><span><i class="fas fa-crosshairs"></i>YOLOv8</span></div>
+      </div>
+      <div class="row">
+        <span class="num">05</span>
         <h3>Tools</h3>
         <div class="chips"><span>VS Code</span><span>Code::Blocks</span><span>Eclipse</span><span>Oracle</span></div>
       </div>
       <div class="row">
-        <span class="num">05</span>
+        <span class="num">06</span>
         <h3>Modeling &amp; OS</h3>
         <div class="chips"><span>UML</span><span><i class="fab fa-windows"></i>Windows</span></div>
       </div>
       <div class="row">
-        <span class="num">06</span>
+        <span class="num">07</span>
         <h3>Soft Skills</h3>
         <div class="chips"><span>Problem Solving</span><span>Team Collaboration</span><span>Adaptability</span><span>Leadership</span><span>Curiosity</span><span>Communication</span><span>Attention to detail</span></div>
       </div>
       <div class="row">
-        <span class="num">07</span>
+        <span class="num">08</span>
         <h3>Languages</h3>
         <div class="chips"><span>Arabic · Native</span><span>French · Professional</span><span>English · Professional</span><span>Italian · Beginner</span></div>
       </div>
@@ -1177,60 +1325,236 @@ footer{
     <h2 class="title reveal">Projects</h2>
     <div class="stack">
 
-      <article class="card" style="--i:0">
+      <article class="card card-tall" style="--i:0">
         <div class="card-head">
           <span class="num">01</span>
-          <div><h3>Halo-Free</h3><small>Eco-Friendly E-commerce Website</small></div>
+          <div><h3>AI-Based Exam Proctoring System</h3><small>Computer vision application for exam monitoring</small></div>
           <span class="tag">Academic project</span>
         </div>
+        <div class="chips tech"><span><i class="fab fa-python"></i>Python</span><span><i class="fas fa-eye"></i>OpenCV</span><span><i class="fas fa-crosshairs"></i>YOLOv8</span></div>
+
+        <div class="card-body">
+          <div class="card-art cv-art" style="--bg-art:linear-gradient(135deg,#191934,#2a1f5c)" aria-hidden="true">
+            <span class="cv-rec"><i></i> LIVE</span>
+            <span class="cv-corner tl"></span><span class="cv-corner tr"></span><span class="cv-corner bl"></span><span class="cv-corner br"></span>
+            <div class="cv-face"><i class="fas fa-user"></i><b>face</b></div>
+            <div class="cv-gaze"><i class="fas fa-eye"></i> gaze →</div>
+            <div class="cv-phone"><i class="fas fa-mobile-screen"></i><b>phone</b></div>
+            <span class="cv-note">Illustration</span>
+          </div>
+          <div>
+            <p class="card-desc">A computer-vision application designed to support exam monitoring by detecting faces, gaze direction and mobile phones, with image captures for later review.</p>
+            <ul>
+              <li><strong>Face detection</strong> — checks that the candidate is present in front of the camera</li>
+              <li><strong>Gaze direction</strong> — estimates whether the candidate is looking away from the screen</li>
+              <li><strong>Mobile phone detection</strong> — YOLOv8 object detection on the video frames</li>
+              <li><strong>Image captures</strong> — saved with a timestamp when an event is flagged</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card-extra">
+          <div>
+            <h4><i class="fas fa-route"></i> Detection workflow</h4>
+            <ol class="steps">
+              <li>Capture webcam frames with OpenCV</li>
+              <li>Detect the face and estimate gaze direction</li>
+              <li>Run YOLOv8 to detect mobile phones</li>
+              <li>Flag events of interest (e.g. face out of frame, looking away, phone visible)</li>
+              <li>Save a timestamped image capture</li>
+              <li>A human reviewer checks the captures</li>
+            </ol>
+          </div>
+          <div>
+            <h4><i class="fas fa-sitemap"></i> Technical architecture</h4>
+            <div class="pipeline">
+              <span><i class="fas fa-video"></i> Webcam input</span>
+              <span><i class="fas fa-eye"></i> OpenCV · frame processing</span>
+              <span class="split"><em><i class="fas fa-user"></i> Face &amp; gaze analysis</em><em><i class="fas fa-crosshairs"></i> YOLOv8 · phone detection</em></span>
+              <span><i class="fas fa-flag"></i> Event flagging</span>
+              <span><i class="fas fa-images"></i> Image captures for review</span>
+            </div>
+          </div>
+          <div>
+            <h4><i class="fas fa-triangle-exclamation"></i> Limitations</h4>
+            <ul class="limits">
+              <li>Accuracy depends on lighting, camera quality and angle</li>
+              <li>Gaze estimation is approximate</li>
+              <li>False positives and missed detections are possible</li>
+              <li>A single camera cannot see what happens off-screen</li>
+              <li>Captures involve personal data: consent and secure storage are required</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="callout"><i class="fas fa-scale-balanced"></i><span>Detections are <strong>indicators for human review</strong>, not proof of misconduct. Every flagged event must be checked by a person before any decision is made.</span></p>
+      </article>
+
+      <article class="card card-tall" style="--i:1">
+        <div class="card-head">
+          <span class="num">02</span>
+          <div><h3>Halo-Free</h3><small>Eco-friendly e-commerce website</small></div>
+          <span class="tag">Academic project</span>
+        </div>
+        <div class="chips tech"><span><i class="fab fa-html5"></i>HTML</span><span><i class="fab fa-css3-alt"></i>CSS</span><span><i class="fab fa-js"></i>JavaScript</span></div>
+
         <div class="card-body">
           <div class="card-art" style="--bg-art:linear-gradient(135deg,#17a08a,#2ee6d6)" data-stickers="code,cursor,braces">
             <div class="icon"><i class="fas fa-cart-shopping"></i></div>
           </div>
-          <ul>
-            <li>Designed and developed an e-commerce website offering halogen-free products (food, pharmaceutical and fire safety)</li>
-            <li>Built the platform with HTML, CSS and JavaScript</li>
-            <li>Implemented a functional shopping cart</li>
-            <li>Designed a modern, intuitive navigation interface</li>
-          </ul>
+          <div>
+            <p class="card-desc">An e-commerce website offering halogen-free products across three categories — food, pharmaceutical and fire safety — designed to make safer, eco-friendly alternatives easy to find and buy.</p>
+            <ul>
+              <li><strong>Product catalogue</strong> — halogen-free products organised by category</li>
+              <li><strong>Shopping cart</strong> — functional cart to add and manage selected products</li>
+              <li><strong>Navigation</strong> — modern, intuitive interface to move between categories and products</li>
+              <li><strong>Front-end development</strong> — the whole platform built with HTML, CSS and JavaScript</li>
+            </ul>
+          </div>
         </div>
+
+        <div class="card-extra">
+          <div>
+            <h4><i class="fas fa-route"></i> User journey</h4>
+            <ol class="steps">
+              <li>Land on the home page</li>
+              <li>Choose a category: food, pharmaceutical or fire safety</li>
+              <li>Browse the halogen-free products</li>
+              <li>Add products to the cart</li>
+              <li>Review the cart before ordering</li>
+            </ol>
+          </div>
+          <div>
+            <h4><i class="fas fa-sitemap"></i> Technical architecture</h4>
+            <div class="pipeline">
+              <span><i class="fab fa-html5"></i> HTML · page structure &amp; content</span>
+              <span><i class="fab fa-css3-alt"></i> CSS · layout &amp; visual design</span>
+              <span><i class="fab fa-js"></i> JavaScript · cart logic &amp; interactions</span>
+              <span><i class="fas fa-desktop"></i> Website in the browser</span>
+            </div>
+          </div>
+          <div>
+            <h4><i class="fas fa-triangle-exclamation"></i> Limitations &amp; next steps</h4>
+            <ul class="limits">
+              <li>Front-end only: no back-end or database yet</li>
+              <li>No online payment or user accounts</li>
+              <li>Next step: connect a back-end to manage products and orders</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="callout"><i class="fas fa-leaf"></i><span><strong>Goal:</strong> promote halogen-free products as a safer and more eco-friendly choice, through a simple and pleasant shopping experience.</span></p>
       </article>
 
-      <article class="card" style="--i:1">
+      <article class="card card-tall" style="--i:2">
         <div class="card-head">
-          <span class="num">02</span>
-          <div><h3>PawMatch</h3><small>Matching &amp; Pet Care Application</small></div>
+          <span class="num">03</span>
+          <div><h3>PawMatch</h3><small>Matching &amp; pet care application</small></div>
           <a class="tag" href="https://den-date-app.lovable.app/" target="_blank" rel="noopener">Live project <i class="fas fa-arrow-up-right-from-square"></i></a>
         </div>
+        <div class="chips tech"><span><i class="fas fa-pen-ruler"></i>UI/UX Design</span><span><i class="fas fa-diagram-project"></i>User journeys</span><span><i class="fas fa-mobile-screen"></i>Web app</span></div>
+
         <div class="card-body">
           <div class="card-art" style="--bg-art:linear-gradient(135deg,#ff4fa3,#ff7a3d)" data-stickers="cursor,code,cloud">
             <div class="icon"><i class="fas fa-paw"></i></div>
           </div>
-          <ul>
-            <li>Application built around two modules: Matching (connecting pets) and Care (connecting pet owners)</li>
-            <li>Contributed to the user interface design and navigation logic</li>
-            <li>Helped structure user journeys and interactions</li>
-          </ul>
+          <div>
+            <p class="card-desc">A web application for pet owners, built around two modules: <strong>Matching</strong>, to connect pets, and <strong>Care</strong>, to connect pet owners with each other.</p>
+            <ul>
+              <li><strong>Matching module</strong> — connects pets with each other</li>
+              <li><strong>Care module</strong> — connects pet owners for care and support</li>
+              <li><strong>User interface</strong> — contributed to the UI design and navigation logic</li>
+              <li><strong>User journeys</strong> — helped structure the paths and interactions between screens</li>
+            </ul>
+          </div>
         </div>
+
+        <div class="card-extra">
+          <div>
+            <h4><i class="fas fa-route"></i> User journey</h4>
+            <ol class="steps">
+              <li>Open the application</li>
+              <li>Choose a module: Matching or Care</li>
+              <li>Matching: discover and connect pets</li>
+              <li>Care: get in touch with other pet owners</li>
+              <li>Switch between modules through the navigation</li>
+            </ol>
+          </div>
+          <div>
+            <h4><i class="fas fa-sitemap"></i> App structure</h4>
+            <div class="pipeline">
+              <span><i class="fas fa-house"></i> Home &amp; navigation</span>
+              <span class="split"><em><i class="fas fa-heart"></i> Matching module</em><em><i class="fas fa-hand-holding-heart"></i> Care module</em></span>
+              <span><i class="fas fa-comments"></i> Connections between users</span>
+            </div>
+          </div>
+          <div>
+            <h4><i class="fas fa-user-gear"></i> My role</h4>
+            <ul class="limits">
+              <li>Interface design of the screens</li>
+              <li>Navigation logic between the two modules</li>
+              <li>Structuring user journeys and interactions</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="callout"><i class="fas fa-users"></i><span><strong>Team project:</strong> my contribution focused on the user experience — making the two modules clear, easy to use and smooth to navigate.</span></p>
       </article>
 
-      <article class="card" style="--i:2">
+      <article class="card card-tall" style="--i:3">
         <div class="card-head">
-          <span class="num">03</span>
-          <div><h3>Power BI Dashboard</h3><small>Sales Performance Dashboard</small></div>
+          <span class="num">04</span>
+          <div><h3>Power BI Dashboard</h3><small>Sales performance dashboard</small></div>
           <span class="tag">Academic project</span>
         </div>
+        <div class="chips tech"><span><i class="fas fa-chart-column"></i>Power BI</span><span><i class="fas fa-filter"></i>Power Query</span><span><i class="fas fa-calculator"></i>DAX</span></div>
+
         <div class="card-body">
           <div class="card-art" style="--bg-art:linear-gradient(135deg,#f2a900,#ffd23f)" data-stickers="database,chart">
             <div class="bars"><i style="height:45%"></i><i style="height:70%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:75%"></i></div>
           </div>
-          <ul>
-            <li>Cleaned and transformed data with Power Query</li>
-            <li>Built key performance indicators (KPIs) and measures with DAX</li>
-            <li>Added filters, slicers and interactive visuals to support analysis and decision-making</li>
-            <li>Identified top-performing products and customers, and sales trends</li>
-          </ul>
+          <div>
+            <p class="card-desc">An interactive Power BI dashboard that analyses commercial performance, turning raw sales data into KPIs and visuals that support decision-making.</p>
+            <ul>
+              <li><strong>Data preparation</strong> — cleaning and transforming the data with Power Query</li>
+              <li><strong>KPIs &amp; measures</strong> — key performance indicators built with DAX</li>
+              <li><strong>Interactivity</strong> — filters, slicers and interactive visuals</li>
+              <li><strong>Insights</strong> — top-performing products and customers, and sales trends</li>
+            </ul>
+          </div>
         </div>
+
+        <div class="card-extra">
+          <div>
+            <h4><i class="fas fa-route"></i> Analysis workflow</h4>
+            <ol class="steps">
+              <li>Import the sales data into Power BI</li>
+              <li>Clean and transform it with Power Query</li>
+              <li>Create KPIs and measures with DAX</li>
+              <li>Build visuals, filters and slicers</li>
+              <li>Analyse top products, top customers and trends</li>
+            </ol>
+          </div>
+          <div>
+            <h4><i class="fas fa-sitemap"></i> Technical architecture</h4>
+            <div class="pipeline">
+              <span><i class="fas fa-database"></i> Sales data source</span>
+              <span><i class="fas fa-filter"></i> Power Query · cleaning &amp; transformation</span>
+              <span><i class="fas fa-calculator"></i> DAX · KPIs &amp; measures</span>
+              <span><i class="fas fa-chart-pie"></i> Interactive report · visuals &amp; slicers</span>
+            </div>
+          </div>
+          <div>
+            <h4><i class="fas fa-triangle-exclamation"></i> Limitations</h4>
+            <ul class="limits">
+              <li>Results depend on the quality and completeness of the source data</li>
+              <li>The analysis covers only the dataset used for the project</li>
+              <li>Trends describe the past and do not predict future sales</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="callout"><i class="fas fa-lightbulb"></i><span><strong>Purpose:</strong> help decision-makers quickly spot the best-performing products and customers and follow sales trends.</span></p>
       </article>
 
     </div>
